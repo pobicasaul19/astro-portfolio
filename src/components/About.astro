@@ -1,0 +1,268 @@
+---
+import Developer from "../image/developer.png";
+
+import HTML from "../image/favorite/HTML.png";
+import CSS from "../image/favorite/CSS.png";
+import SCSS from "../image/favorite/SCSS.png";
+import JAVASCRIPT from "../image/favorite/JAVASCRIPT.png";
+import VUE from "../image/favorite/VUE.png";
+import NUXT from "../image/favorite/NUXT.png";
+import VUETIFY from "../image/favorite/VUETIFY.png";
+import BOOTSTRAP from "../image/favorite/BOOTSTRAP.png";
+import GITHUB from "../image/favorite/GITHUB.png";
+import ADOBE from "../image/favorite/ADOBE-PHOTOSHOP.png";
+---
+
+<script type="module">
+  const hoverTargets = document.querySelectorAll(".favorite-item");
+  const filters = {
+    html: "grayscale(0) invert(0)",
+    css: "grayscale(0) invert(0)",
+    scss: "grayscale(0) invert(0)",
+    javascript: "grayscale(0) invert(0)",
+    vue: "grayscale(0) invert(0)",
+    nuxt: "grayscale(0) invert(0)",
+    vuetify: "grayscale(0) invert(0)",
+    bootstrap: "grayscale(0) invert(0)",
+    github: "grayscale(0) invert(0)",
+    adobe: "grayscale(0) invert(0)",
+  };
+
+  hoverTargets.forEach((hoverTarget) => {
+    const imageElements = Object.entries(filters).map(
+      ([className, filter]) => ({
+        className,
+        elements: hoverTarget.querySelectorAll(`.${className} img`),
+        filter,
+      })
+    );
+
+    hoverTarget.addEventListener("mouseenter", () => {
+      imageElements.forEach(({ elements, filter }) => {
+        elements.forEach((element) => {
+          element.style.filter = filter;
+        });
+      });
+    });
+
+    hoverTarget.addEventListener("mouseleave", () => {
+      imageElements.forEach(({ elements }) => {
+        elements.forEach((element) => {
+          element.style.filter = "grayscale(1) invert(1)";
+        });
+      });
+    });
+  });
+</script>
+
+<section id="about">
+  <h2>About Pobi Casaul</h2>
+  <article>
+    <div class="text">
+      <h3>Just the highlights</h3>
+      <div class="container">
+        <img src={Developer} alt="Developer" class="dev" />
+        <p class="blackbox">
+          I am Phoebe L Casaul, and I hold an Associate of Industrial Technology
+          degree with a major in Electronics Technology from Cavite State
+          University here in the Philippines. My prior work experience includes
+          the position of Junior Software Development Engineer, and I have
+          intermediate experience as a Frontend Web Developer.
+          <br />
+          My skillset encompasses an in-depth knowledge of HTML, CSS|SCSS, and JavaScript,
+          as well as the ability to use popular frameworks such as Nuxt.js and Vue.js.
+          Additionally, I possess familiarity with UI frameworks like Vuetify and Bootstrap.
+          <br />
+          I specialize in creating high-quality web design sites, and I am currently
+          seeking opportunities for long-term, full-time, or part-time employment.
+        </p>
+      </div>
+      <h4>My favorite technologies includes:</h4>
+      <div class="favorite-container technologies" id="hover-target">
+        <div class="favorite-item">
+          <picture class="html">
+            <img src={HTML} alt="HTML" />
+          </picture>
+        </div>
+        <div class="favorite-item">
+          <picture class="css">
+            <img src={CSS} alt="CSS" />
+          </picture>
+        </div>
+        <div class="favorite-item">
+          <picture class="scss">
+            <img src={SCSS} alt="SCSS" />
+          </picture>
+        </div>
+        <div class="favorite-item">
+          <picture class="javascript">
+            <img src={JAVASCRIPT} alt="JAVASCRIPT" />
+          </picture>
+        </div>
+        <div class="favorite-item">
+          <picture class="vue">
+            <img src={VUE} alt="VUE" />
+          </picture>
+        </div>
+        <div class="favorite-item">
+          <picture class="nuxt">
+            <img src={NUXT} alt="NUXT" />
+          </picture>
+        </div>
+        <div class="favorite-item">
+          <picture class="vuetify">
+            <img src={VUETIFY} alt="VUETIFY" />
+          </picture>
+        </div>
+        <div class="favorite-item">
+          <picture class="bootstrap">
+            <img src={BOOTSTRAP} alt="BOOTSTRAP" />
+          </picture>
+        </div>
+        <div class="favorite-item">
+          <picture class="github">
+            <img src={GITHUB} alt="GITHUB" />
+          </picture>
+        </div>
+        <div class="favorite-item">
+          <picture class="adobe">
+            <img src={ADOBE} alt="ADOBE-PHOTOSHOP" />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<hr />
+
+<style lang="scss">
+  $white: #f7f8fa;
+  $max-width: 240px;
+  $color-gray-700: #3a3d4a;
+
+  #about {
+    margin-top: 1rem;
+    padding: 4rem 1rem;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: calc(2.5rem * 0.8);
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+    }
+
+    .dev {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .blackbox {
+      padding: 1rem;
+      border-radius: 10px;
+      color: $white;
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: justify;
+      letter-spacing: 0;
+    }
+
+    h4 {
+      margin-bottom: 1em;
+      font-size: 1em;
+    }
+
+    .favorite-container {
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax($max-width, 1fr));
+      column-gap: 4px;
+
+      & .technologies {
+        max-width: $max-width;
+      }
+
+      .favorite-item {
+        margin: 2px 0;
+        display: flex;
+        justify-content: space-around;
+        border-radius: 2px;
+        align-items: center;
+        transition: background-color 0.2s ease;
+        height: calc($max-width / 2 - 6px);
+        cursor: pointer;
+        background-color: $color-gray-700;
+
+        &:hover {
+          background-color: $white;
+        }
+
+        img {
+          max-width: calc($max-width - 30px);
+          max-height: calc($max-width / 2 - 20px);
+          vertical-align: middle;
+        }
+
+        img {
+          filter: grayscale(1) invert(1);
+
+          &:hover {
+            filter: grayscale(0) invert(0);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    .favorite-container {
+      --max-width: 150px !important;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .container {
+      flex-direction: column-reverse;
+
+      .dev {
+        width: auto !important;
+        height: auto !important;
+      }
+    }
+  }
+
+  @media (min-width: 1201px) {
+    #about {
+      min-width: 850px;
+      margin: 0 auto;
+
+      h2 {
+        padding: 1rem 10rem;
+      }
+
+      article {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+
+        .text {
+          grid-column: 3/9;
+          grid-row: 1/2;
+          order: 2;
+          text-align: right;
+          margin-top: -50px;
+        }
+      }
+    }
+  }
+</style>

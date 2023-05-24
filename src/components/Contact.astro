@@ -1,0 +1,80 @@
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>
+    Your company is the ideal environment for me to develop my skills and gain
+    experience in the industry that I am passionate about, and I also feel like
+    I really resonate with the company's mission.
+  </p>
+  <button>
+    <a href="mailto:phoebecasaul@gmail.com">Email me</a>
+  </button>
+</section>
+
+<p><small>&copy; 2022 Pobi Casaul. All rights reserved.</small></p>
+
+<style lang="scss" scoped>
+  #contact {
+    text-align: center;
+    margin: 0 auto;
+    padding: 3rem 0;
+    max-width: 420px;
+    font-family: initial;
+
+    p {
+      text-align: justify;
+      font-size: 1.1rem;
+      line-height: 1.5rem;
+      letter-spacing: 0;
+    }
+
+    button {
+      width: 10em;
+      height: 4em;
+      margin: 0.5em;
+      background: #1f2028;
+      border: none;
+      border-radius: 0.625em;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-family: "Oxygen mono", monospace;
+      letter-spacing: 4px;
+      border: 1px solid #171321;
+    }
+
+    button a {
+      color: #f7f8fa;
+      text-decoration: none;
+    }
+
+    button a:hover {
+      color: #000 !important;
+    }
+
+    button:after {
+      content: "";
+      background: #f7f8fa;
+      position: absolute;
+      z-index: -1;
+      left: -20%;
+      right: -20%;
+      top: 0;
+      bottom: 0;
+      transform: skewX(-45deg) scale(0, 1);
+      transition: all 0.5s;
+    }
+
+    button:hover:after {
+      transform: skewX(-45deg) scale(1, 1);
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+</style>

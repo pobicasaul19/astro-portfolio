@@ -1,0 +1,122 @@
+---
+---
+
+<script>
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  const phrases = ["frontend of the websites."];
+  const el = document.getElementById("typewriter");
+
+  let sleepTime = 100;
+
+  const writeLoop = async () => {
+    for (
+      let outPhraseIndex = 0;
+      outPhraseIndex < phrases.length;
+      outPhraseIndex++
+    ) {
+      let inPhraseIndex = 0;
+      while (inPhraseIndex < phrases[outPhraseIndex].length) {
+        el.innerHTML += phrases[outPhraseIndex][inPhraseIndex];
+        inPhraseIndex++;
+        await sleep(sleepTime);
+      }
+      await sleep(1000);
+      while (inPhraseIndex > 0) {
+        el.innerHTML = el.innerHTML.slice(0, -1);
+        inPhraseIndex--;
+        await sleep(sleepTime);
+      }
+    }
+    writeLoop();
+  };
+
+  writeLoop();
+</script>
+
+<section id="intro">
+  <p class="name">
+    Hello, my name is <span>Pobi Casaul.</span>
+  </p>
+  <h5>
+    Jr. Frontend <span> Web Developer</span>
+  </h5>
+  <h2>
+    I am the <span id="typewriter"></span>
+    <span id="cursor">|</span>
+  </h2>
+  <p>
+    I have a deep understanding of HTML, CSS|SCSS, and JavaScript. I am
+    knowledgeable about using popular JavaScript frameworks such as Vue.js and
+    Nuxt.js. I also have knowledge of UI frameworks such as Vuetify and
+    Bootstrap.
+  </p>
+</section>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+  ><path
+    fill="#535661"
+    fill-opacity="1"
+    d="M0,32L12.6,58.7C25.3,85,51,139,76,138.7C101.1,139,126,85,152,69.3C176.8,53,202,75,227,117.3C252.6,160,278,224,303,224C328.4,224,354,160,379,133.3C404.2,107,429,117,455,112C480,107,505,85,531,80C555.8,75,581,85,606,90.7C631.6,96,657,96,682,85.3C707.4,75,733,53,758,58.7C783.2,64,808,96,834,96C858.9,96,884,64,909,74.7C934.7,85,960,139,985,144C1010.5,149,1036,107,1061,122.7C1086.3,139,1112,213,1137,208C1162.1,203,1187,117,1213,90.7C1237.9,64,1263,96,1288,122.7C1313.7,149,1339,171,1364,154.7C1389.5,139,1415,85,1427,58.7L1440,32L1440,320L1427.4,320C1414.7,320,1389,320,1364,320C1338.9,320,1314,320,1288,320C1263.2,320,1238,320,1213,320C1187.4,320,1162,320,1137,320C1111.6,320,1086,320,1061,320C1035.8,320,1011,320,985,320C960,320,935,320,909,320C884.2,320,859,320,834,320C808.4,320,783,320,758,320C732.6,320,707,320,682,320C656.8,320,632,320,606,320C581.1,320,556,320,531,320C505.3,320,480,320,455,320C429.5,320,404,320,379,320C353.7,320,328,320,303,320C277.9,320,253,320,227,320C202.1,320,177,320,152,320C126.3,320,101,320,76,320C50.5,320,25,320,13,320L0,320Z"
+  ></path></svg
+>
+<hr />
+
+<style lang="scss" scoped>
+  $mono: "Oxygen mono", monospace;
+  $sans: Oxygen, sans-serif;
+  $white: #f7f8fa;
+
+  #intro {
+    padding: 4rem 1rem 10rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation-name: slide-up;
+    animation-duration: 2s;
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .name {
+      font-family: $mono;
+      font-size: 1rem;
+
+      span {
+        display: block;
+        font-family: $sans;
+        font-size: 4rem;
+        color: $white;
+        display: block;
+        font-weight: 300;
+      }
+    }
+
+    h2 {
+      font-size: 4rem;
+      font-weight: normal;
+    }
+
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+
+  hr {
+    margin: 0;
+    padding: 0;
+    height: 1px;
+    opacity: 0.3;
+    background: #535661;
+  }
+</style>

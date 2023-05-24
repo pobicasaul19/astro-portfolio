@@ -1,0 +1,233 @@
+---
+import Laguna from "../image/lovelaguna.jpg";
+import Store from "../image/the-store.jpg";
+import Decor from "../image/home-decor.jpg";
+---
+
+<div class="row">
+  <h2>Project I'm proud of</h2>
+  <section id="project">
+    <article>
+      <div
+        class="text-right"
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+      >
+        <h4 class="position">
+          Jr. Software Development Engineer <br />
+          Dreamforge Innovations Inc.
+        </h4>
+        <h5>March 2022 - June 2022</h5>
+        <h4>Main Project</h4>
+        <h3>Love Laguna</h3>
+        <p class="blackbox">
+          Description of the Project. Love Laguna is structured to strengthen
+          and amplify the tourist spots and activities that we have in our
+          province. The <a
+            href="https://lovelaguna.com.ph/lovelaguna/home-page"
+            target="_blank">Love Laguna</a
+          > project is all about boosting the tourism, establishment, and local products
+          of the Province of Laguna. With big smiles and proud hearts, we set forward
+          our beloved Laguna to a bigger and better spotlight that it so richly deserves.
+        </p>
+        <h4>Technologies used include:</h4>
+        <ul>
+          <li>Angular Framework</li>|
+          <li>Node Package Manager</li>|
+          <li>Bootstrap 5</li>|
+          <li>GitHub</li>|
+          <li>Adobe Photoshop</li>|
+        </ul>
+      </div>
+      <img data-aos="flip-left" src={Laguna} alt="Love Laguna" />
+    </article>
+  </section>
+  <section id="project-2">
+    <article>
+      <div
+        class="text-left"
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+      >
+        <h5>October 2022</h5>
+        <h4>eCommerce</h4>
+        <h3>The Store</h3>
+        <p class="blackbox">
+          Description of the Project. This is my eCommerce sample project <a
+            href="https://thestore-ph.netlify.app/"
+            target="_blank"
+            >The Store.
+          </a> This project is full frontend web development and I'm using Nuxt.js
+          to build this sample eCommerce project. In this project, I use Mackaroo
+          to create dummy data and there is no backend web development.
+        </p>
+        <h4>Technologies used include:</h4>
+        <ul>
+          <li>Nuxt.js Framework</li>|
+          <li>Node Package Manager</li>|
+          <li>Mockaroo</li>|
+          <li>Adobe Photoshop</li>|
+          <li>GitHub</li>
+        </ul>
+      </div>
+      <img data-aos="flip-left" src={Store} alt="The Store" />
+    </article>
+  </section>
+  <section id="project">
+    <article class="shop">
+      <div
+        class="text-right"
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+      >
+        <h5>January 2023</h5>
+        <h4>eCommerce</h4>
+        <h3>Home Décor</h3>
+        <p class="blackbox">
+          Description of the Project. This project, built using Vue 3 and Vuex 4
+          for state management. I use Mackaroo to create dummy data, is a sample
+          eCommerce website. <a
+            href="https://e-homedecor.netlify.app/"
+            target="_blank">Home Décor</a
+          > is a great place to shop for all of your home needs. Home Décor offers
+          a wide range of products, including furniture, lights, and rugs, to help
+          make your house a home.
+        </p>
+        <h4>Technologies used include:</h4>
+        <ul>
+          <li>Vue 3</li>|
+          <li>Node Package Manager</li>|
+          <li>eCommerce</li>|
+          <li>Vuex 4</li>|
+          <li>Vuetify</li>|
+          <li>GitHub</li>
+        </ul>
+      </div>
+      <img data-aos="flip-left" src={Decor} alt="Home Décor" />
+    </article>
+  </section>
+  <hr />
+</div>
+
+<style lang="scss" scoped>
+  $color-gray-500: #535661;
+  $gray: #79838c;
+  $white: #f7f8fa;
+  $mono: "Oxygen mono", monospace;
+
+  .row {
+    padding: 4rem 1rem;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: calc(2.5rem * 1.5);
+    }
+
+    section {
+      padding: 0 1rem;
+    }
+
+    #project,
+    #project-2 {
+      h3 {
+        color: $white;
+      }
+
+      h4 {
+        font-size: 1rem;
+        font-family: $mono;
+        margin: 0;
+      }
+
+      h5 {
+        font-size: 0.8rem;
+        font-family: $mono;
+      }
+
+      .blackbox {
+        padding: 1rem;
+        border-radius: 10px;
+        color: $white;
+        font-size: 1rem;
+        line-height: 1.5;
+
+        a {
+          text-decoration: none;
+          color: $gray;
+          &:hover {
+            color: $color-gray-500;
+          }
+        }
+      }
+
+      img {
+        margin: 2rem 0 4rem 0;
+        border-left: 1px solid $white;
+        border-top: 1px solid $white;
+        border-radius: 25px;
+        padding: 1rem;
+        width: 100%;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        gap: 10px;
+        padding-top: 2px;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (min-width: 1201px) {
+    article {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+    }
+
+    #project,
+    #project-2 {
+      min-width: 850px;
+      margin: 0 auto;
+    }
+
+    #project img {
+      grid-column: 1/6;
+      grid-row: 1/2;
+    }
+
+    #project-2 img {
+      grid-column: 6/11;
+      grid-row: 1/2;
+    }
+
+    .text-right {
+      grid-column: 6/11;
+      grid-row: 1/2;
+      order: 2;
+      text-align: right;
+    }
+
+    .text-left {
+      grid-column: 1/6;
+      order: 2;
+      text-align: left;
+    }
+
+    #project ul {
+      justify-content: flex-end;
+    }
+
+    #project-2 ul {
+      justify-content: flex-start;
+    }
+  }
+</style>
