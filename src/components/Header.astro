@@ -83,10 +83,28 @@ import "../styles/global.scss";
   $sans: Oxygen, sans-serif;
   $transition-easing: cubic-bezier(0.5, 0, 0.5, 1);
   $animation-duration: 0.8s;
+  $gradient: linear-gradient(
+    90deg,
+    hsl(0, 0%, 100%) 0%,
+    hsl(0, 0%, 99.1%) 4.9%,
+    hsl(0, 0%, 96.58%) 9.5%,
+    hsl(0, 0%, 92.68%) 13.8%,
+    hsl(0, 0%, 87.66%) 17.9%,
+    hsl(0, 0%, 81.75%) 22.1%,
+    hsl(0, 0%, 75.21%) 26.6%,
+    hsl(0, 0%, 68.29%) 31.3%,
+    hsl(0, 0%, 61.24%) 36.6%,
+    hsl(0, 0%, 54.3%) 42.5%,
+    hsl(0, 0%, 47.72%) 49.2%,
+    hsl(0, 0%, 41.76%) 56.8%,
+    hsl(0, 0%, 36.66%) 65.6%,
+    hsl(0, 0%, 32.66%) 75.6%,
+    hsl(0, 0%, 30.03%) 87%,
+    hsl(0, 0%, 29%) 100%
+  );
 
   header {
     z-index: 1;
-    flex-grow: 1;
     position: sticky;
     top: 0;
     width: 100%;
@@ -107,10 +125,12 @@ import "../styles/global.scss";
         height: 100%;
         padding: 1rem 5rem;
         font-family: $sans;
-
         a {
           text-decoration: none;
           color: $white;
+          background: $gradient;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       }
 
@@ -280,14 +300,13 @@ import "../styles/global.scss";
       display: flex !important;
       justify-content: space-between;
       align-items: center;
-      padding: 0 1rem;
+      padding: 1rem 2.5rem 0;
       position: sticky;
       top: 0;
       left: 0;
       width: 100%;
-      height: 55px;
+      height: 55px !important;
       z-index: 1000;
-      margin-top: 1rem;
 
       .logo {
         height: auto !important;
@@ -305,7 +324,7 @@ import "../styles/global.scss";
         flex-direction: column;
         position: fixed;
         justify-content: start;
-        top: 100px;
+        top: 71.7px;
         width: 100%;
         height: calc(50vh - 55px);
         transform: translate(-100%);
