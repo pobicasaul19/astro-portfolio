@@ -4,10 +4,10 @@ import Store from "../image/the-store.jpg";
 import Decor from "../image/home-decor.jpg";
 ---
 
-<div class="row">
+<div class="row" id="project">
   <h2>Project I'm proud of</h2>
-  <section id="project">
-    <article>
+  <section>
+    <article class="project">
       <div
         class="text-right"
         data-aos="fade-right"
@@ -37,14 +37,14 @@ import Decor from "../image/home-decor.jpg";
           <li>Node Package Manager</li>|
           <li>Bootstrap 5</li>|
           <li>GitHub</li>|
-          <li>Adobe Photoshop</li>|
+          <li>Adobe Photoshop</li>
         </ul>
       </div>
       <img data-aos="flip-left" src={Laguna} alt="Love Laguna" />
     </article>
   </section>
-  <section id="project-2">
-    <article>
+  <section>
+    <article class="project-2">
       <div
         class="text-left"
         data-aos="fade-right"
@@ -75,8 +75,8 @@ import Decor from "../image/home-decor.jpg";
       <img data-aos="flip-left" src={Store} alt="The Store" />
     </article>
   </section>
-  <section id="project">
-    <article class="shop">
+  <section>
+    <article class="project">
       <div
         class="text-right"
         data-aos="fade-right"
@@ -131,8 +131,8 @@ import Decor from "../image/home-decor.jpg";
       padding: 0 1rem;
     }
 
-    #project,
-    #project-2 {
+    .project,
+    .project-2 {
       h3 {
         color: $white;
       }
@@ -193,18 +193,18 @@ import Decor from "../image/home-decor.jpg";
       grid-template-columns: repeat(10, 1fr);
     }
 
-    #project,
-    #project-2 {
+    .project,
+    .project-2 {
       min-width: 850px;
       margin: 0 auto;
     }
 
-    #project img {
+    .project img {
       grid-column: 1/6;
       grid-row: 1/2;
     }
 
-    #project-2 img {
+    .project-2 img {
       grid-column: 6/11;
       grid-row: 1/2;
     }
@@ -222,12 +222,12 @@ import Decor from "../image/home-decor.jpg";
       text-align: left;
     }
 
-    #project ul {
-      justify-content: flex-end;
+    .project ul {
+      justify-content: flex-end !important;
     }
 
-    #project-2 ul {
-      justify-content: flex-start;
+    .project-2 ul {
+      justify-content: flex-start !important;
     }
   }
 </style>
