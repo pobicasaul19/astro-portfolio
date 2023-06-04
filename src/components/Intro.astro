@@ -1,7 +1,7 @@
 ---
 ---
 
-<script>
+<script type="module">
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
@@ -9,7 +9,7 @@
   const phrases = ["frontend of the websites."];
   const el = document.getElementById("typewriter");
 
-  let sleepTime = 100;
+  const sleepTime = 100;
 
   const writeLoop = async () => {
     for (
@@ -67,6 +67,25 @@
   $mono: "Oxygen mono", monospace;
   $sans: Oxygen, sans-serif;
   $white: #f7f8fa;
+  $gradient: linear-gradient(
+    90deg,
+    hsl(0, 0%, 100%) 0%,
+    hsl(0, 0%, 99.1%) 4.9%,
+    hsl(0, 0%, 96.58%) 9.5%,
+    hsl(0, 0%, 92.68%) 13.8%,
+    hsl(0, 0%, 87.66%) 17.9%,
+    hsl(0, 0%, 81.75%) 22.1%,
+    hsl(0, 0%, 75.21%) 26.6%,
+    hsl(0, 0%, 68.29%) 31.3%,
+    hsl(0, 0%, 61.24%) 36.6%,
+    hsl(0, 0%, 54.3%) 42.5%,
+    hsl(0, 0%, 47.72%) 49.2%,
+    hsl(0, 0%, 41.76%) 56.8%,
+    hsl(0, 0%, 36.66%) 65.6%,
+    hsl(0, 0%, 32.66%) 75.6%,
+    hsl(0, 0%, 30.03%) 87%,
+    hsl(0, 0%, 29%) 100%
+  );
 
   #intro {
     padding: 4rem 1rem 10rem;
@@ -97,6 +116,9 @@
     h2 {
       font-size: 4rem;
       font-weight: normal;
+      background: $gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     @keyframes slide-up {

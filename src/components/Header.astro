@@ -1,22 +1,48 @@
 ---
 import "../styles/global.scss";
+
+const navItems = [
+  {
+    name: "Project",
+    path: "/#project",
+  },
+  {
+    name: "About",
+    path: "/#about",
+  },
+  {
+    name: "Contact",
+    path: "/#contact",
+  },
+];
+
+const navInfo = [
+  {
+    name: "GitHub",
+    link: "https://github.com/pobicasaul19",
+  },
+  {
+    name: "Resume",
+    link: "https://drive.google.com/file/d/12Z7I2_8ered0yP72oQIN-8D-FQBqm2dY/view?usp=sharing",
+  },
+];
 ---
 
 <script type="module">
-  const menuToggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".nav");
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".nav");
 
-  menuToggle.addEventListener("click", function () {
+menuToggle.addEventListener("click", function () {
+  nav.classList.toggle("mobile-nav");
+  this.classList.toggle("is-active");
+});
+
+nav.addEventListener("click", function () {
+  if (event.target.tagName === "A") {
     nav.classList.toggle("mobile-nav");
-    this.classList.toggle("is-active");
-  });
-
-  nav.addEventListener("click", function () {
-    if (event.target.tagName === "A") {
-      nav.classList.toggle("mobile-nav");
-      menuToggle.classList.toggle("is-active");
-    }
-  });
+    menuToggle.classList.toggle("is-active");
+  }
+});
 </script>
 
 <header>
@@ -24,7 +50,7 @@ import "../styles/global.scss";
     <div class="logo">
       <h1>
         <a href="/">
-          <span aria-hidden="true"></span>Pobi Casaul
+          <span aria-hidden="true">Pobi Casaul</span>
         </a>
       </h1>
     </div>
@@ -34,42 +60,34 @@ import "../styles/global.scss";
       <span class="bar"></span>
     </div>
     <ul class="nav menu-left">
-      <li class="nav-item">
-        <button class="cta">
-          <span class="hover-underline-animation">
-            <a href="/#project">Project</a>
-          </span>
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="cta">
-          <span class="hover-underline-animation">
-            <a href="/#about">About</a>
-          </span>
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="cta">
-          <span class="hover-underline-animation">
-            <a href="/#contact">Contact</a>
-          </span>
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="cta">
-          <span class="hover-underline-animation">
-            <a href="https://github.com/pobicasaul19" target="_blank">GitHub</a>
-          </span>
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="button">
-          <a
-            href="https://drive.google.com/file/d/12Z7I2_8ered0yP72oQIN-8D-FQBqm2dY/view?usp=sharing"
-            target="_blank">Resume</a
-          >
-        </button>
-      </li>
+      {
+        navItems.map((item) => {
+          return (
+            <li class="nav-item">
+              <button class="cta">
+                <span class="hover-underline-animation">
+                  <a href={item.path}>{item.name}</a>
+                </span>
+              </button>
+            </li>
+          );
+        })
+      }
+      {
+        navInfo.map((info) => {
+          return (
+            <li class="nav-item">
+              <button class="cta">
+                <span class="hover-underline-animation">
+                  <a href={info.link} target="_blank">
+                    {info.name}
+                  </a>
+                </span>
+              </button>
+            </li>
+          );
+        })
+      }
     </ul>
   </nav>
   <hr />
@@ -182,50 +200,6 @@ import "../styles/global.scss";
 
           &:hover {
             color: $white;
-          }
-        }
-
-        .button {
-          width: 6.5em;
-          height: 2.5em;
-          background: $color-gray-900;
-          border: none;
-          border-radius: 0.625em;
-          cursor: pointer;
-          position: relative;
-          z-index: 1;
-          overflow: hidden;
-          font-size: 14px;
-          text-transform: uppercase;
-          font-family: $mono;
-          letter-spacing: 4px;
-
-          a {
-            text-decoration: none;
-            color: $white;
-
-            &:hover {
-              color: $black !important;
-            }
-          }
-
-          &:after {
-            content: "";
-            background: $white;
-            position: absolute;
-            z-index: -1;
-            left: -20%;
-            right: -20%;
-            top: 0;
-            bottom: 0;
-            transform: skewX(-45deg) scale(0, 1);
-            transition: all 0.5s;
-          }
-
-          &:hover::after {
-            transform: skewX(-45deg) scale(1, 1);
-            -webkit-transition: all 0.5s;
-            transition: all 0.5s;
           }
         }
       }
