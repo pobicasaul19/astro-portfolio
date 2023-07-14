@@ -7,6 +7,7 @@ import SCSS from "../image/favorite/SCSS.png";
 import JAVASCRIPT from "../image/favorite/JAVASCRIPT.png";
 import VUE from "../image/favorite/VUE.png";
 import NUXT from "../image/favorite/NUXT.png";
+import ASTRO from "../image/favorite/ASTRO.png";
 import VUETIFY from "../image/favorite/VUETIFY.png";
 import BOOTSTRAP from "../image/favorite/BOOTSTRAP.png";
 import GITHUB from "../image/favorite/GITHUB.png";
@@ -14,45 +15,46 @@ import ADOBE from "../image/favorite/ADOBE-PHOTOSHOP.png";
 ---
 
 <script type="module">
-  const hoverTargets = document.querySelectorAll(".favorite-item");
-  const filters = {
-    html: "grayscale(0) invert(0)",
-    css: "grayscale(0) invert(0)",
-    scss: "grayscale(0) invert(0)",
-    javascript: "grayscale(0) invert(0)",
-    vue: "grayscale(0) invert(0)",
-    nuxt: "grayscale(0) invert(0)",
-    vuetify: "grayscale(0) invert(0)",
-    bootstrap: "grayscale(0) invert(0)",
-    github: "grayscale(0) invert(0)",
-    adobe: "grayscale(0) invert(0)",
-  };
+const hoverTargets = document.querySelectorAll(".favorite-item");
+const filters = {
+  html: "grayscale(0) invert(0)",
+  css: "grayscale(0) invert(0)",
+  scss: "grayscale(0) invert(0)",
+  javascript: "grayscale(0) invert(0)",
+  vue: "grayscale(0) invert(0)",
+  nuxt: "grayscale(0) invert(0)",
+  astro: "grayscale(0) invert(0)",
+  vuetify: "grayscale(0) invert(0)",
+  bootstrap: "grayscale(0) invert(0)",
+  github: "grayscale(0) invert(0)",
+  adobe: "grayscale(0) invert(0)",
+};
 
-  hoverTargets.forEach((hoverTarget) => {
-    const imageElements = Object.entries(filters).map(
-      ([className, filter]) => ({
-        className,
-        elements: hoverTarget.querySelectorAll(`.${className} img`),
-        filter,
-      })
-    );
+hoverTargets.forEach((hoverTarget) => {
+  const imageElements = Object.entries(filters).map(
+    ([className, filter]) => ({
+      className,
+      elements: hoverTarget.querySelectorAll(`.${className} img`),
+      filter,
+    })
+  );
 
-    hoverTarget.addEventListener("mouseenter", () => {
-      imageElements.forEach(({ elements, filter }) => {
-        elements.forEach((element) => {
-          element.style.filter = filter;
-        });
-      });
-    });
-
-    hoverTarget.addEventListener("mouseleave", () => {
-      imageElements.forEach(({ elements }) => {
-        elements.forEach((element) => {
-          element.style.filter = "grayscale(1) invert(1)";
-        });
+  hoverTarget.addEventListener("mouseenter", () => {
+    imageElements.forEach(({ elements, filter }) => {
+      elements.forEach((element) => {
+        element.style.filter = filter;
       });
     });
   });
+
+  hoverTarget.addEventListener("mouseleave", () => {
+    imageElements.forEach(({ elements }) => {
+      elements.forEach((element) => {
+        element.style.filter = "grayscale(1) invert(1)";
+      });
+    });
+  });
+});
 </script>
 
 <section id="about">
@@ -70,8 +72,9 @@ import ADOBE from "../image/favorite/ADOBE-PHOTOSHOP.png";
           intermediate experience as a Frontend Web Developer.
           <br />
           My skillset encompasses an in-depth knowledge of HTML, CSS|SCSS, and JavaScript,
-          as well as the ability to use popular frameworks such as Nuxt.js and Vue.js.
-          Additionally, I possess familiarity with UI frameworks like Vuetify and Bootstrap.
+          as well as the ability to use popular frameworks such as Nuxt.js, Vue.js,
+          and modern web frontend framework like Astro. Additionally, I possess familiarity
+          with UI frameworks like Vuetify and Bootstrap.
           <br />
           I specialize in creating high-quality web design sites, and I am currently
           seeking opportunities for long-term, full-time, or part-time employment.
@@ -96,7 +99,12 @@ import ADOBE from "../image/favorite/ADOBE-PHOTOSHOP.png";
         </div>
         <div class="favorite-item">
           <picture class="javascript">
-            <img src={JAVASCRIPT} alt="JAVASCRIPT" loading="eager" decoding="async" />
+            <img
+              src={JAVASCRIPT}
+              alt="JAVASCRIPT"
+              loading="eager"
+              decoding="async"
+            />
           </picture>
         </div>
         <div class="favorite-item">
@@ -110,13 +118,23 @@ import ADOBE from "../image/favorite/ADOBE-PHOTOSHOP.png";
           </picture>
         </div>
         <div class="favorite-item">
+          <picture class="astro">
+            <img src={ASTRO} alt="ASTRO" loading="eager" decoding="async" />
+          </picture>
+        </div>
+        <div class="favorite-item">
           <picture class="vuetify">
             <img src={VUETIFY} alt="VUETIFY" loading="eager" decoding="async" />
           </picture>
         </div>
         <div class="favorite-item">
           <picture class="bootstrap">
-            <img src={BOOTSTRAP} alt="BOOTSTRAP" loading="eager" decoding="async" />
+            <img
+              src={BOOTSTRAP}
+              alt="BOOTSTRAP"
+              loading="eager"
+              decoding="async"
+            />
           </picture>
         </div>
         <div class="favorite-item">
@@ -126,7 +144,12 @@ import ADOBE from "../image/favorite/ADOBE-PHOTOSHOP.png";
         </div>
         <div class="favorite-item">
           <picture class="adobe">
-            <img src={ADOBE} alt="ADOBE-PHOTOSHOP" loading="eager" decoding="async" />
+            <img
+              src={ADOBE}
+              alt="ADOBE-PHOTOSHOP"
+              loading="eager"
+              decoding="async"
+            />
           </picture>
         </div>
       </div>
@@ -225,7 +248,6 @@ import ADOBE from "../image/favorite/ADOBE-PHOTOSHOP.png";
   }
 
   @media (max-width: 480px) {
-
     .favorite-container {
       --max-width: 150px !important;
     }
